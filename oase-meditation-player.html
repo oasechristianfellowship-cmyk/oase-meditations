@@ -387,7 +387,7 @@ function buildPlaylist() {
 function loadTrack(index, autoplay=false) {
   currentIndex = index;
   const t = tracks[index];
-  audio.src = `https://docs.google.com/uc?export=open&id=${t.id}`;
+  audio.src = `https://drive.google.com/uc?export=download&id=${t.id}`;
   audio.volume = parseFloat(volSlide.value);
   npTitle.textContent = t.title;
   progFill.style.width = '0%';
