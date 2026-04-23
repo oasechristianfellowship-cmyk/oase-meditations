@@ -325,23 +325,19 @@
 // MEDITATIONS LIST — EDIT HERE TO ADD OR CHANGE TRACKS
 //
 // HOW TO ADD A NEW MEDITATION:
-// 1. Upload the audio to Google Drive
-// 2. Right-click → Share → "Anyone with the link" → Viewer → Copy link
-// 3. The link looks like: https://drive.google.com/file/d/XXXXXXX/view
-// 4. Copy only the ID (the long string between /d/ and /view)
-// 5. Add a new line below:
-//    { title: "Meditation Title", id: "PASTE_ID_HERE", duration: "00:00" },
+// 1. Upload the audio to archive.org
+// 2. Open the item and click on the audio file
+// 3. Copy the direct link (ends in .mp3 or .m4a)
+// 4. Add a new line below:
+//    { title: "Title", url: "PASTE_FULL_URL_HERE", duration: "00:00" },
 // ============================================================
 
 const tracks = [
-  { title: "Meditation 1",  id: "1bkWUMPfYxDmnYYpqpUXhmWwDm4fn2y9C", duration: "59:47" },
-  { title: "Meditation 2",  id: "1WFeJKjStdM-Wbg6mAhadHrG6axAtGUH8", duration: "57:05" },
-  { title: "Meditation 3",  id: "1J3tqlf0jOOfrEqpiphttm0WFVw8B8Lx7", duration: "48:49" },
-  { title: "Meditation 4",  id: "1wscoQPqXyDsBl5turAUMXNvxBsi3YkbK", duration: "56:02" },
-  { title: "Meditation 5",  id: "1sFaoH_1emDm0MEnpKvKjJVkWl7jyvSQS", duration: "33:42" },
-  { title: "Meditation 6",  id: "REPLACE_WITH_FILE_ID",                duration: "00:00" },
-  { title: "Meditation 7",  id: "REPLACE_WITH_FILE_ID",                duration: "00:00" },
-  { title: "Meditation 8",  id: "REPLACE_WITH_FILE_ID",                duration: "00:00" },
+  { title: "Chris John1 20260412",  url: "https://ia601600.us.archive.org/2/items/chris-church-20260214_20260423/Chris_John1_20260412.m4a",  duration: "59:47" },
+  { title: "Chris Church 20260214", url: "https://ia601600.us.archive.org/2/items/chris-church-20260214_20260423/Chris_church_20260214.m4a", duration: "57:05" },
+  { title: "Chris Church 20260215", url: "https://ia601600.us.archive.org/2/items/chris-church-20260214_20260423/Chris_church_20260215.m4a", duration: "48:49" },
+  { title: "Chris Church 20260307", url: "https://ia601600.us.archive.org/2/items/chris-church-20260214_20260423/Chris_church_20260307.m4a", duration: "56:02" },
+  { title: "Chris Church 20260308", url: "https://ia601600.us.archive.org/2/items/chris-church-20260214_20260423/Chris_church_20260308.m4a", duration: "33:42" },
 ];
 
 // ============================================================
@@ -387,7 +383,7 @@ function buildPlaylist() {
 function loadTrack(index, autoplay=false) {
   currentIndex = index;
   const t = tracks[index];
-  audio.src = `https://drive.google.com/uc?export=download&id=${t.id}`;
+  audio.src = t.url;
   audio.volume = parseFloat(volSlide.value);
   npTitle.textContent = t.title;
   progFill.style.width = '0%';
